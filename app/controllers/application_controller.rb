@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
 
   # before_action :set_activity, only: [:show, :edit, :update, :destroy]
   # skip_before_action :verify_authenticity_token

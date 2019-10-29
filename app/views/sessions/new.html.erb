@@ -10,6 +10,8 @@
     <%= password_field_tag :password %>
   </div>
     <%= submit_tag "Submit" %>
+    <%= flash[:warning] %>
+    
   <%end%>
 
   <a href="/signup">Sign Up!</a>

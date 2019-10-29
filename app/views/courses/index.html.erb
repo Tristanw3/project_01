@@ -1,4 +1,11 @@
+<div class="container">
+  <% @courses.each do |c| %>
+    <div class="card">
+      <h3><%= c.course_name %></h3>
+      <img src=<%=c.image%> alt="">
 
-<% @courses.each do |c| %>
-  c
-<% end %>
+      <%= c.user.name%>
+    </div>
+  
+  <% end %>
+</div>

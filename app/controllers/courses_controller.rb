@@ -1,24 +1,25 @@
 class CoursesController < ApplicationController
   def new
+    authenticate_user!
     @course = Course.new
   end
 
   def create
+    authenticate_user!
     @course = Course.new(
-      # course_name: params[:course_name],
-      # image: params[:image],
-      # link: params[:link],
-      # user_id: current_user['id']
     course_params
     )
 
     @course.user_id = current_user.id
     
+    @course.save
+
     redirect_to courses_path
 
   end
 
   def index
+    authenticate_user!
     @courses = Course.all
   end
 
