@@ -1,0 +1,17 @@
+
+  <h2>Add Course</h2>
+
+  <%= form_for @course do |f| %>
+  <%= f.label :course_name %>
+  <%= f.text_field :course_name, class: "form-control" %>
+  <br>
+  <br>
+  <%= f.label :image %>
+  <%= f.text_field :image, class: "form-control" %>
+  <br>
+  <br>
+  <%= f.label :link %>
+  <%= f.text_field :link, class: "form-control" %>
+
+  <%= f.submit %>
+  <% end %>
