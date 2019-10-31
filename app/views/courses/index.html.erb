@@ -1,11 +1,14 @@
-<div class="container">
-  <% @courses.each do |c| %>
-    <div class="card">
-      <h3><%= c.course_name %></h3>
-      <img src=<%=c.image%> alt="">
 
-      <%= c.user.name%>
-    </div>
+  <% @courses.each do |c| %>
   
+  <div class="card" style="width: 18rem;">
+    <img src=<%= c.image%> class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= c.course_name %></h5>
+      <p class="card-text"><%= c.description %></p>
+      <a href=<%= course_path(c.id) %> class="btn btn-primary">View Course</a>
+    </div>
+  </div>
+
   <% end %>
 </div>

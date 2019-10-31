@@ -14,9 +14,7 @@
  *= require_self
  */
 
-@import url('https://fonts.googleapis.com/css?family=Stoke&display=swap');
 * {
-    font-family: 'Stoke', serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -28,20 +26,22 @@ body {
     margin: 0;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    background-color: grey;
-    padding-left: 30px;
-}
-
 nav a {
-    padding: 20px;
+    padding: 10px;
+    color: white;
 }
 
 nav a:hover {
     background-color: white;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1500px;
+    /* padding: 20px; */
+    margin: 0 auto;
 }
 
 .box {
@@ -49,7 +49,11 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px black solid;
-    height: 100vh;
-    ;
+    /* height: 100vh; */
+    width: 100%;
+    padding-top: 59px;
+}
+
+.card {
+    margin: 20px;
 }

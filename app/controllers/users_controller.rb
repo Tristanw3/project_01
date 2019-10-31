@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   def new
+    if current_user
+      redirect_to '/courses'
+    end
   end
 
   def create
     @user = User.new(
+      user_name: params[:user_name],
       name: params[:name],
       email: params[:email],
       password: params[:password],
@@ -17,11 +21,12 @@ class UsersController < ApplicationController
       flash[:warning] = "Something went wrong"
       redirect_to '/signup'
     end
+
   end
 
-  def view
-    authenticate_user!
-    
-  end
+  # private
+  # def user_params
+  #   params.require(:user).permit(:user_name, :name, :email, :password, :password_confirmation)
+  # end
 
 end

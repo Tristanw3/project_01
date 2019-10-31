@@ -1,0 +1,49 @@
+<div class="jumbotron" style="width: 100%;">
+  <h1 class="display-4"><%= @course.course_name %></h1>
+  <p class="lead"><%= @course.user.name%></p>
+  <img src=<%= @course.image%> alt="">
+  <hr class="my-4">
+  <p><%= @course.description%></p>
+  
+  <a class="btn btn-primary btn-lg" href=<%= @course.link%> role="button">Go To</a>
+</div>
+
+<h2>Reviews</h2>
+<% @course.reviews.each do |review| %>
+  <div style="width: 100%; border: 1px black solid;">
+  
+  
+  
+  <p>
+    <strong>review:</strong>
+    <%= review.review_text %>
+  </p>
+ 
+  <p>
+    <strong>user id:</strong>
+    <%= review.user_id%>
+  </p>
+  <p>
+    <strong>course id:</strong>
+    <%= review.course_id%>
+  </p>
+  </div>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @course, @course.reviews.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :review_text %><br>
+    <%= form.text_field :review_text %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+
+
+
+
+

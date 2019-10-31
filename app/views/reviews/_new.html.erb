@@ -1,0 +1,9 @@
+
+  <h2>Add Review</h2> 
+
+  <%= form_for Review.new do |f| %>
+    <%= f.label :review_text %>
+    <%= f.text_field :review_text, class: "form-control" %>
+    
+    <%= f.submit%>
+  <% end %>
