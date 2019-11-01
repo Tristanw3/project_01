@@ -12,30 +12,10 @@ class ReviewsController < ApplicationController
     
     @course = Course.find(params[:course_id])
     @review = @course.reviews.create(review_params)
-
     @review.user_id = current_user.id
-
     @review.save
-
-    # @review = Review.new(review_params)
     
-    # @review.course_id = @x
-    p 'xxxxxxxxxxxxxxx'
-    p params
-    p 'xxxxxxxxxxxxxxx'
-
-    
-
     redirect_to course_path(@course)
-    
-
-    p "---------------------------------------------"
-    p @review
-    p "---------------------------------------------"
-
-    
-
-    # redirect_to courses_path
   end
 
 

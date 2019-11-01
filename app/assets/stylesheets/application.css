@@ -44,16 +44,6 @@ nav a:hover {
     margin: 0 auto;
 }
 
-.box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* height: 100vh; */
-    width: 100%;
-    padding-top: 59px;
-}
-
 .card {
     margin: 20px;
 }

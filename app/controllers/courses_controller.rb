@@ -20,9 +20,6 @@ class CoursesController < ApplicationController
     # Add user id
     @course.user_id = current_user.id
 
-    p "---------------------------------------------"
-    p @course
-    p "---------------------------------------------"
 
     if @course.save
       redirect_to @course
@@ -32,11 +29,35 @@ class CoursesController < ApplicationController
 
   def show
     authenticate_user!
-    @reviews = Review.all
     @course = Course.find(params[:id])
 
-    @x = params[:id]
-    
+  end
+
+  def edit
+    @course = Course.find(params[:id])
+
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    @course.update(
+      course_name: params[:course][:course_name], 
+      description: params[:course][:description],
+      link: params[:course][:image],
+      image: params[:course][:image]
+    )
+    redirect_to course_path(@course)
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    if @course.destroy
+      flash[:success] = 'Object was successfully deleted.'
+      redirect_to courses_url
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to courses_url
+    end
   end
 
   private
