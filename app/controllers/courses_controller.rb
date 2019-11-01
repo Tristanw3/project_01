@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
     @course.update(
       course_name: params[:course][:course_name], 
       description: params[:course][:description],
-      link: params[:course][:image],
+      link: params[:course][:link],
       image: params[:course][:image]
     )
     redirect_to course_path(@course)
