@@ -9,8 +9,6 @@ class CoursesController < ApplicationController
     
     @course = Course.new
 
-    # @review = Review.new(course_id: params[:course_id])
-    
   end
 
   def create
@@ -19,7 +17,6 @@ class CoursesController < ApplicationController
     
     # Add user id
     @course.user_id = current_user.id
-
 
     if @course.save
       redirect_to @course

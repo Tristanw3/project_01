@@ -1,6 +1,6 @@
 <div class="jumbotron" style="width: 100%;">
   <h1 class="display-4"><%= @course.course_name %></h1>
-  <p class="lead"><%= @course.user.name%></p>
+  <p class="lead"><%= @course.user.user_name%></p>
   <img src=<%= @course.image%> alt="">
   <hr class="my-4">
   <p><%= @course.description%></p>
@@ -14,11 +14,13 @@
 
 <h2>Reviews</h2>
 <% @course.reviews.each do |review| %>
-    <div style="width: 100%; border: 1px black solid;">
-  
+    <div class="review" >
     <h4><strong>review:</strong></h4>
     <p>
       <%= review.review_text %>
+      <% if current_user.id == review.user_id %>
+        <%= link_to 'Delete', review_path(review.id), class: 'btn btn-primary btn-lg', action: 'destroy' , method: :delete %>
+      <% end %>
     </p>
 
   </div>
@@ -31,9 +33,8 @@
     <%= form.text_field :review_text %>
   </p>
  
-  <p>
-    <%= form.submit %>
-  </p>
+   <%= form.submit %>
+  
 <% end %>
 
 
