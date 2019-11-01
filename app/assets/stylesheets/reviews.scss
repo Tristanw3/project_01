@@ -4,4 +4,29 @@
 .review {
     width: 600px;
     border: 1px black solid;
+    padding: 10px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.review-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review p {
+    padding: 0;
+    margin: 0;
+}
+
+#ending {
+    padding-top: 10px;
+    // float: right;
+    font-style: italic;
+    color: grey;
+}
+
+#ending a {
+    float: right;
 }

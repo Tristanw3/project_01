@@ -12,16 +12,23 @@
   <% end %>
 </div>
 
+
+<div class="review-box">
 <h2>Reviews</h2>
 <% @course.reviews.each do |review| %>
     <div class="review" >
-    <h4><strong>review:</strong></h4>
     <p>
       <%= review.review_text %>
-      <% if current_user.id == review.user_id %>
-        <%= link_to 'Delete', review_path(review.id), class: 'btn btn-primary btn-lg', action: 'destroy' , method: :delete %>
-      <% end %>
     </p>
+    <p id='ending'>
+    <%= review.user.user_name%>
+
+    <% if current_user.id == review.user_id %>
+      <%= link_to 'Delete', [review.course, review], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm' %>
+    <% end %>
+    </p>
+    
+    
 
   </div>
 <% end %>
@@ -36,6 +43,6 @@
    <%= form.submit %>
   
 <% end %>
-
+</div>
 
 
